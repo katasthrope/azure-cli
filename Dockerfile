@@ -1,19 +1,11 @@
-FROM ubuntu:22.04
+FROM mcr.microsoft.com/azure-cli:2.64.0-cbl-mariner2.0
 
-ENV DEBIAN_FRONTEND=noninteractive
+RUN apk add --no-cache \
+    jq=1.7.1-r0 \
+    git=2.45.2-r0 \
+    curl=8.9.1-r1 \
+    openssl=3.3.2-r0
 
-RUN apt-get update && \
-    apt-get install -y \
-    curl \
-    apt-transport-https \
-    lsb-release \
-    jq \
-    git
+RUN az aks install-cli
 
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash && \
-    az aks install-cli
-
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-CMD ["az", "version"]
+CMD ["az", "version", "&&", "kubectl", "version", "--short"]
