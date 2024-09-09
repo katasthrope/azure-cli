@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azure-cli:2.64.0-cbl-mariner2.0
+FROM mcr.microsoft.com/azure-cli:2.64.0
 
 RUN apk add --no-cache \
     jq=1.7.1-r0 \
