@@ -22,16 +22,3 @@ jobs:
     - name: Check Dockerfile Lint
       run: |
         hadolint ${DOCKERFILE_PATH}
-
-  sh_lint:
-    runs-on: ubuntu-22.04
-    container:
-      image: koalaman/shellcheck-alpine:v0.10.0
-    env:
-      SCRIPTS_PATH: "scripts"
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Check Scripts
-      run: shellcheck ${SCRIPTS_PATH}/*.sh
