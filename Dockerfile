@@ -6,7 +6,10 @@ RUN apt-get update && \
     apt-get install -y \
     curl \
     apt-transport-https \
-    lsb-release
+    lsb-release \
+    jq \
+    yq \
+    git-all
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash && \
     az aks install-cli
