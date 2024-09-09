@@ -8,7 +8,6 @@ RUN apt-get update && \
     apt-transport-https \
     lsb-release \
     jq \
-    yq \
     git
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash && \
