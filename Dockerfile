@@ -6,4 +6,4 @@ RUN tdnf install -y jq git curl openssl && \
     tdnf clean all && \
     rm -rf /var/cache/tdnf/*
 
-CMD ["sh", "-c", "az version && kubectl version --short"]
+CMD ["sh", "-c", "az version && kubectl version"]
