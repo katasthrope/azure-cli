@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-transport-https \
     lsb-release
 
-RUN curl -L https://aka.ms/InstallAzureCli | bash && \
+RUN echo | curl -L https://aka.ms/InstallAzureCli | bash && \
     az aks install-cli
 
 RUN apt-get clean && \
