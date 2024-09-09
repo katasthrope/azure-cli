@@ -1,0 +1,23 @@
+name: Update Docker Hub Description
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+
+jobs:
+  dockerHubDescription:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v4
+
+    - name: Docker Hub Description
+      uses: peter-evans/dockerhub-description@v4
+      with:
+        username: ${{ vars.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        repository: ${{ vars.REGISTRY_IMAGE }}
+        short-description: ${{ github.event.repository.description }}
+        readme-filepath: README.md
