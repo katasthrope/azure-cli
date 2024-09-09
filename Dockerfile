@@ -9,7 +9,7 @@ RUN apt-get update && \
     lsb-release \
     jq \
     yq \
-    git-all
+    git
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash && \
     az aks install-cli
